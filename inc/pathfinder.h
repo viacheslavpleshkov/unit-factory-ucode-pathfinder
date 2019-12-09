@@ -48,6 +48,7 @@ void mx_graph_print(struct s_graph *);
 void mx_graph_algorithm(struct s_graph *, int);
 //Main
 char **mx_file_to_arr(char *file);
+t_list *mx_graph_path(char **array);
 int main(int argc, char *argv[]);
 
 #endif
