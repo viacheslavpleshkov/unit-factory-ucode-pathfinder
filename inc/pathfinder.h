@@ -16,20 +16,30 @@ typedef enum e_error
     INVLD_NUM_ISLDS
 } t_error;
 
-//Structs
-struct node
+//Struct
+typedef struct s_island t_island;
+typedef struct s_link t_link;
+typedef struct s_path t_path;
+
+struct s_island
 {
-    int vertex;
-    struct node *next;
+    char *name;
+    t_link *links; // linked islands list
+    t_island *next;
+    int index;
+    t_path **paths;   // path to each island
 };
 
-struct node *createNode(int v);
-
-struct s_graph
+struct s_link
 {
-    int numVertices;
-    int *visited;
-    struct node **adjLists;
+    int weight; // weight between parent and linked islands
+    t_island *linked_island;
+    t_link *next;
+};
+
+struct s_path {
+    t_link *path;
+    t_path *next;
 };
 
 //Validation
@@ -40,11 +50,17 @@ void mx_validation_file_dexist(char *argv);
 void mx_validation_first_line(char **array);
 void mx_validation_num_islnd(char **array);
 void mx_validation_check_line(char **array);
-//Graph
-struct s_graph *mx_graph_create(int);
-void mx_graph_add_edge(struct s_graph *, int, int);
-void mx_graph_print(struct s_graph *);
-void mx_graph_algorithm(struct s_graph *, int);
+//Graph island
+t_island mx_graph_create_island(char *name);
+void mx_graph_add_island(t_island **islands, t_island *i);
+void mx_graph_get_island(t_island **islands, char *name);
+//Graph link
+t_link *mx_graph_create_link(t_island *linked_island);
+void mx_graph_add_link(t_link **links, t_link *l);
+void mx_graph_push_back_link(t_link **links, t_link *l);
+void mx_graph_set_link(t_link **links, t_island *linked_island, int weight);
+//Graph path
+t_path *mx_create_path();
 //Main
 char **mx_file_to_arr(char *file);
 char *mx_parse(char *file);
