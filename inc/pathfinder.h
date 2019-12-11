@@ -41,14 +41,14 @@ void mx_validation_first_line(char **array);
 void mx_validation_num_islnd(char **array);
 void mx_validation_check_line(char **array);
 //Graph
-char *mx_graph_parse(char *file);
 struct s_graph *mx_graph_create(int);
 void mx_graph_add_edge(struct s_graph *, int, int);
 void mx_graph_print(struct s_graph *);
 void mx_graph_algorithm(struct s_graph *, int);
 //Main
 char **mx_file_to_arr(char *file);
-t_list *mx_graph_path(char **array);
+char *mx_parse(char *file);
+t_list *mx_parse_island(char **array);
 int main(int argc, char *argv[]);
 
 #endif

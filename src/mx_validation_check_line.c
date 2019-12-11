@@ -28,6 +28,6 @@ void mx_validation_check_line(char **array)
 
         }
         if (space > 1 || delimetr > 1 || array[i][0] == '-' || number == true)
-            mx_printerr_pf(INVLD_LINE, mx_itoa(i));
+            mx_printerr_pf(INVLD_LINE, mx_itoa(i + 1));
     }
 }
