@@ -1,13 +1,13 @@
 #include "pathfinder.h"
 
-void mx_graph_get_island(t_island **islands, char *name)
+t_island *mx_graph_island_get(t_island **islands, char *name)
 {
     t_island *temp_islands = *islands;
     t_island *last_island;
 
     if (!temp_islands)
     {
-        *islands = mx_create_island(name);
+        *islands = mx_graph_island_create(name);
         return *islands;
     }
     while (temp_islands)
@@ -21,6 +21,6 @@ void mx_graph_get_island(t_island **islands, char *name)
             last_island = temp_islands;
         temp_islands = temp_islands->next;
     }
-    last_island->next = mx_create_island(name);
+    last_island->next = mx_graph_island_create(name);
     return last_island->next;
 }

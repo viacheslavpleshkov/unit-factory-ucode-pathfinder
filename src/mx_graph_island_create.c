@@ -1,6 +1,6 @@
 #include "pathfinder.h"
 
-t_island *mx_create_island(char *name)
+t_island *mx_graph_island_create(char *name)
 {
     t_island *island = malloc(sizeof(t_island));
 

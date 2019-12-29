@@ -19,6 +19,7 @@ typedef enum e_error
 //Struct
 typedef struct s_island t_island;
 typedef struct s_link t_link;
+typedef struct s_main t_main;
 
 struct s_island
 {
@@ -31,32 +32,43 @@ struct s_island
 
 struct s_link
 {
-    int weight; 
+    int weight;
     t_island *linked_island;
     t_link *next;
 };
 
+struct s_main
+{
+    int file;
+    char *filename;
+    t_island *islands;
+};
+
 //Validation
 void mx_printerr_pf(t_error err, const char *s);
-void mx_validation(int argc, char *argv[]);
+void mx_validation(t_main *main);
 void mx_validation_cmd_args(int argc);
-void mx_validation_file_dexist(char *argv);
+void mx_validation_file_dexist(t_main *main);
 void mx_validation_first_line(char **array);
 void mx_validation_num_islnd(char **array);
+t_list *mx_validation_check_island(char **array);
 void mx_validation_check_line(char **array);
 //Graph island
-t_island mx_graph_create_island(char *name);
-void mx_graph_add_island(t_island **islands, t_island *island);
-void mx_graph_get_island(t_island **islands, char *name);
+t_island *mx_graph_island_create(char *name);
+void mx_graph_island_add(t_island **islands, t_island *island);
+t_island *mx_graph_island_get(t_island **islands, char *name);
 //Graph link
-t_link *mx_graph_create_link(t_island *linked_island);
-void mx_graph_add_link(t_link **links, t_link *l);
-void mx_graph_push_back_link(t_link **links, t_link *l);
-void mx_graph_set_link(t_link **links, t_island *linked_island, int weight);
-//Main
+t_link *mx_graph_link_create(t_island *linked_island);
+void mx_graph_link_add(t_link **links, t_link *link);
+void mx_graph_link_set(t_link **links, t_island *linked_island, int weight);
+//Until
 char **mx_file_to_arr(char *file);
-char *mx_parse_file(char *file);
-t_list *mx_parse_island(char **array);
+//Pathainder
+void mx_graph_parse(t_main *main);
+// void mx_graph_algorithm(t_main *main);
+// void mx_print_paths(t_main *main);
+//Main
+t_main *mx_main_create();
 int main(int argc, char *argv[]);
 
 #endif

@@ -1,10 +1,8 @@
 #include "pathfinder.h"
 
-void mx_validation_file_dexist(char *argv)
+void mx_validation_file_dexist(t_main *main)
 {
-    int fd;
-    //Validation
-    fd = open(argv, O_RDONLY);
+    int fd = main->file;
     if (read(fd, 0, 0) < 0)
-        mx_printerr_pf(FILE_DEXIST, argv);
+        mx_printerr_pf(FILE_DEXIST, main->filename);
 }

@@ -36,7 +36,7 @@ static char *strncdup(const char *s1, int end, int start)
     return duplicate;
 }
 
-t_list *mx_parse_island(char **array)
+t_list *mx_validation_check_island(char **array)
 {
     char **arr = array;
     int dedline1 = 0;
@@ -60,5 +60,6 @@ t_list *mx_parse_island(char **array)
         temp = NULL;
         mx_strdel(&temp);
     }
+    mx_strdel(arr);
     return list;
 }
