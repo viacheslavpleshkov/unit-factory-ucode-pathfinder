@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     main = mx_main_create(argv);
     mx_validation(main);
     mx_graph_parse(main);
-    //mx_graph_algorithm(main);
+    mx_graph_algorithm(main);
     //mx_print_paths(main);
     system("leaks -q pathfinder");
 }

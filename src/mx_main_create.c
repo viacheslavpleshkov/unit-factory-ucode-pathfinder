@@ -7,7 +7,7 @@ t_main *mx_main_create(char *argv[])
     
     main->file = file;
     main->islands = NULL;
-    main->invalid_line = 0;
+    main->count_island = 0;
 
     return main;
 }

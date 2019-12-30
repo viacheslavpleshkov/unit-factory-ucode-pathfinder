@@ -19,6 +19,7 @@ typedef enum e_error
 //Struct
 typedef struct s_island t_island;
 typedef struct s_link t_link;
+typedef struct s_path t_path;
 typedef struct s_file t_file;
 typedef struct s_main t_main;
 
@@ -27,7 +28,7 @@ struct s_island
     int index;
     char *name;
     t_link *links;
-    t_link **paths;
+    t_path **paths;
     t_island *next;
 };
 
@@ -36,6 +37,14 @@ struct s_link
     int weight;
     t_island *linked_island;
     t_link *next;
+};
+
+struct s_path
+{
+    t_link *route;
+    int distance;
+    bool is_shortest;
+    t_path *next;
 };
 
 struct s_file
@@ -49,7 +58,7 @@ struct s_main
 {
     t_file *file;
     t_island *islands;
-    int invalid_line;
+    int count_island;
 };
 
 //Validation
@@ -57,7 +66,7 @@ void mx_printerr_pf(t_error err, const char *s);
 void mx_validation(t_main *main);
 void mx_validation_cmd_args(int argc);
 void mx_validation_file_dexist(t_main *main);
-void mx_validation_first_line(char **array);
+void mx_validation_first_line(t_main *main);
 void mx_validation_num_islnd(char **array);
 t_list *mx_validation_check_island(char **array);
 void mx_validation_check_delim(char **array);
@@ -76,7 +85,7 @@ void mx_graph_link_set(t_link **links, t_island *linked_island, int weight);
 char **mx_file_to_arr(char *file);
 //Pathainder
 void mx_graph_parse(t_main *main);
-// void mx_graph_algorithm(t_main *main);
+void mx_graph_algorithm(t_main *main);
 // void mx_print_paths(t_main *main);
 //Main
 t_file *mx_file_crate(char *argv[]);
