@@ -19,6 +19,7 @@ typedef enum e_error
 //Struct
 typedef struct s_island t_island;
 typedef struct s_link t_link;
+typedef struct s_file t_file;
 typedef struct s_main t_main;
 
 struct s_island
@@ -37,10 +38,16 @@ struct s_link
     t_link *next;
 };
 
+struct s_file
+{
+    int fd;
+    char *name;
+    char **array;
+};
+
 struct s_main
 {
-    int file;
-    char *filename;
+    t_file *file;
     t_island *islands;
 };
 
@@ -68,7 +75,8 @@ void mx_graph_parse(t_main *main);
 // void mx_graph_algorithm(t_main *main);
 // void mx_print_paths(t_main *main);
 //Main
-t_main *mx_main_create();
+t_file *mx_file_crate(char *argv[]);
+t_main *mx_main_create(char *argv[]);
 int main(int argc, char *argv[]);
 
 #endif

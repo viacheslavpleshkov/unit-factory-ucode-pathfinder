@@ -2,7 +2,7 @@
 
 void mx_graph_parse(t_main *main)
 {
-    char **array = mx_file_to_arr(main->filename);
+    char **array = main->file->array;
     char **ptr;
     char *ptr1;
     t_island *island1;

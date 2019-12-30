@@ -1,11 +1,11 @@
 #include "pathfinder.h"
 
-t_main *mx_main_create()
+t_main *mx_main_create(char *argv[])
 {
     t_main *main = malloc(sizeof(t_main));
-
-    main->file = 0;
-    main->filename = NULL;
+    t_file *file = mx_file_crate(argv);
+    
+    main->file = file;
     main->islands = NULL;
 
     return main;

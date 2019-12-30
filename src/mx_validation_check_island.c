@@ -1,13 +1,5 @@
 #include "pathfinder.h"
 
-static int get_counter_in_array(char *array, char name)
-{
-    int counter = 0;
-    while (array[counter] != name)
-        counter++;
-    return counter;
-}
-
 static int check_list(t_list **list, char *str)
 {
     if (*list == NULL)
@@ -21,45 +13,29 @@ static int check_list(t_list **list, char *str)
     }
     return 0;
 }
-static char *strncdup(const char *s1, int end, int start)
-{
-    int i = start + 1;
-    char *duplicate = mx_strnew(end - i);
-
-    int counter = 0;
-    while (i != end)
-    {
-        duplicate[counter] = s1[i];
-        counter++;
-        i++;
-    }
-    return duplicate;
-}
 
 t_list *mx_validation_check_island(char **array)
 {
-    char **arr = array;
-    int dedline1 = 0;
-    int dedline2 = 0;
+    char **ptr = NULL;
+    char *ptr1 = NULL;
     char *temp = NULL;
     t_list *list = NULL;
-    for (int i = 1; arr[i] != NULL; i++)
+    for (int i = 1; array[i] != NULL; i++)
     {
-        dedline1 = 0;
-        dedline2 = 0;
-        dedline1 = get_counter_in_array(arr[i], '-');
-        temp = mx_strndup(arr[i], dedline1);
+        ptr = mx_strsplit(array[i], '-');
+        temp = mx_strdup(ptr[0]);
         if (check_list(&list, temp) == 0)
             mx_push_back(&list, temp);
-        temp = NULL;
         mx_strdel(&temp);
-        dedline2 = get_counter_in_array(arr[i], ',');
-        temp = strncdup(arr[i], dedline2, dedline1);
+        ptr1 = mx_strdup(ptr[1]);
+        mx_del_strarr(&ptr);
+        ptr = mx_strsplit(ptr1, ',');
+        mx_strdel(&ptr1);
+        temp = mx_strdup(ptr[0]);
+        mx_del_strarr(&ptr);
         if (check_list(&list, temp) == 0)
             mx_push_back(&list, temp);
-        temp = NULL;
         mx_strdel(&temp);
     }
-    mx_strdel(arr);
     return list;
 }

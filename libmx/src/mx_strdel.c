@@ -2,11 +2,9 @@
 
 void mx_strdel(char **str)
 {
-    if (str == NULL || *str == NULL)
+    if (*str)
     {
-        return;
+        free(*str);
+        *str = NULL;
     }
-
-    free(*str);
-    *str = NULL;
 }

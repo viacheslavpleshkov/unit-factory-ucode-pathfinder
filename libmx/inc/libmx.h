@@ -85,6 +85,7 @@ void mx_push_back(t_list **list, void *data);
 void mx_pop_front(t_list **head);
 void mx_pop_back(t_list **head);
 int mx_list_size(t_list *list);
+void mx_del_list(t_list *list, int leng);
 t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 
 #endif
