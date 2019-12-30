@@ -49,6 +49,7 @@ struct s_main
 {
     t_file *file;
     t_island *islands;
+    int invalid_line;
 };
 
 //Validation
@@ -59,7 +60,10 @@ void mx_validation_file_dexist(t_main *main);
 void mx_validation_first_line(char **array);
 void mx_validation_num_islnd(char **array);
 t_list *mx_validation_check_island(char **array);
-void mx_validation_check_line(char **array);
+void mx_validation_check_delim(char **array);
+void mx_validation_check_island_one_isalpha(char **array);
+void mx_validation_check_island_two_isalpha(char **array);
+void mx_validation_check_number(char **array);
 //Graph island
 t_island *mx_graph_island_create(char *name);
 void mx_graph_island_add(t_island **islands, t_island *island);

@@ -15,9 +15,11 @@ INC		=	pathfinder.h
 INCS	=	$(addprefix $(INCD)/, $(INC))
 
 SRC		= 	mx_printerr_pf.c mx_validation.c mx_validation_cmd_args.c mx_validation_file_dexist.c \
-			mx_validation_first_line.c mx_validation_check_island.c mx_validation_check_line.c mx_validation_num_islnd.c \
-			mx_graph_island_create.c mx_graph_island_add.c mx_graph_island_get.c mx_graph_link_create.c mx_graph_link_add.c mx_graph_link_set.c \
-			mx_file_to_arr.c mx_graph_parse.c mx_file_crate.c mx_main_create.c main.c 
+			mx_validation_first_line.c mx_validation_check_island.c mx_validation_check_delim.c \
+			mx_validation_check_island_one_isalpha.c mx_validation_check_island_two_isalpha.c  \
+			mx_validation_check_number.c mx_validation_num_islnd.c mx_graph_island_create.c \
+			mx_graph_island_add.c mx_graph_island_get.c mx_graph_link_create.c mx_graph_link_add.c \
+			mx_graph_link_set.c mx_file_to_arr.c mx_graph_parse.c mx_file_crate.c mx_main_create.c main.c 
 		
 SRCS	=	$(addprefix $(SRCD)/, $(SRC))
 OBJS	=	$(addprefix $(OBJD)/, $(SRC:%.c=%.o))
