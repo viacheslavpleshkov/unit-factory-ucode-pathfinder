@@ -2,17 +2,16 @@
 
 char **mx_strsplit(const char *s, char c)
 {
+    int i = 0;
+    int j = 0;
+    int countlet = 0;
+    char **new = NULL;
+
     if (!s)
-    {
         return NULL;
-    }
     else
     {
-        int i = 0;
-        int j = 0;
-        int countlet = 0;
-        char **new = (char **)malloc(sizeof(char *) * (mx_count_words(s, c) + 1));
-
+        new = (char **)malloc(sizeof(char *) * (mx_count_words(s, c) + 1));
         while (s[i])
         {
             if (s[i] != c)
@@ -25,7 +24,7 @@ char **mx_strsplit(const char *s, char c)
             i++;
         }
         new[j] = NULL;
-        
+
         return new;
     }
 }

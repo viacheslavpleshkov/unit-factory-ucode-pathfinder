@@ -16,6 +16,7 @@ static int file_len(const char *file)
     
     return len;
 }
+
 char *mx_file_to_str(const char *file)
 {
     int fl = open(file, O_RDONLY);

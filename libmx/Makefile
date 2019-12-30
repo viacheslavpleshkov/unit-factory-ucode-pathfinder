@@ -21,7 +21,7 @@ SRC	= 	    mx_printchar.c mx_strlen.c mx_arrlen.c mx_print_unicode.c mx_printstr
 		    mx_memmem.c mx_memmove.c mx_realloc.c mx_is_positive.c mx_is_odd.c mx_isalpha.c mx_isdigit.c \
 		    mx_islower.c mx_isupper.c mx_tolower.c mx_toupper.c mx_multiple_number.c mx_max.c mx_mid.c \
 		    mx_create_node.c mx_push_front.c mx_push_back.c mx_pop_front.c mx_pop_back.c mx_list_size.c \
-			mx_del_list.c  mx_sort_list.c
+			mx_del_list.c mx_sort_list.c
 
 SRCS	=	$(addprefix $(SRCD)/, $(SRC))
 OBJS	=	$(addprefix $(OBJD)/, $(SRC:%.c=%.o))
@@ -54,4 +54,4 @@ uninstall: clean
 reinstall: uninstall install
 
 start: 
-	@(COMP) -std=c11 -Wall -Wextra -Werror -Wpedantic main.c libmx.a && ./a.out
+	clang -std=c11 -Wall -Wextra -Werror -Wpedantic main.c libmx.a && ./a.out

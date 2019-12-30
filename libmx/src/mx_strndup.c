@@ -2,9 +2,13 @@
 
 char *mx_strndup(const char *s1, size_t n)
 {
-    char *duplicate = mx_strnew(n);
+    char *duplicate = NULL;
+    size_t length = mx_strlen(s1);
 
-    mx_strncpy(duplicate, s1, n);
-    
+    if (n < length)
+        length = n;
+    duplicate = mx_strnew(length);
+    mx_strncpy(duplicate, s1, length);
+
     return duplicate;
 }

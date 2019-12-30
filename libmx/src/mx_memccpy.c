@@ -10,9 +10,7 @@ void *mx_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 			return (void *)&(((unsigned char *)dst)[i + 1]);
 		}
 		else
-		{
 			((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
-		}
 	}
 
 	return NULL;

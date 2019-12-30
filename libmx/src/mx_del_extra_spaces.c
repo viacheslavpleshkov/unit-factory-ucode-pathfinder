@@ -2,17 +2,16 @@
 
 char *mx_del_extra_spaces(const char *str)
 {
+    char *memory = NULL;
+    char *temp = NULL;
+    int i = 0;
+    int j = 0;
+
     if (!str)
-    {
         return NULL;
-    }
     else
     {
-        char *memory = mx_strnew(mx_strlen(str));
-        char *temp = NULL;
-        int i = 0;
-        int j = 0;
-
+        memory = mx_strnew(mx_strlen(str));
         while (str[i])
         {
             if (!(mx_is_space(str[i])))
@@ -29,7 +28,7 @@ char *mx_del_extra_spaces(const char *str)
             i++;
         }
         temp = mx_strtrim(memory);
-        free(memory);
+        mx_strdel(&memory);
 
         return temp;
     }

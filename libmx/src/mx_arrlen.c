@@ -9,5 +9,6 @@ int mx_arrlen(char **arr)
         length++;
         arr++;
     }
+    
     return length;
 }

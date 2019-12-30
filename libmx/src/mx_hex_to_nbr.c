@@ -7,16 +7,10 @@ unsigned long mx_hex_to_nbr(const char *hex)
 	unsigned long base = 1;
 
 	if (hex != NULL)
-	{
 		while (hex[len])
-		{
 			len++;
-		}
-	}
 	else
-	{
 		return num;
-	}
 	for (int i = 0; i <= len; i++)
 	{
 		if (hex[len - i] >= '0' && hex[len - i] <= '9')

@@ -12,5 +12,6 @@ int mx_atoi(const char *str)
         if (!mx_isdigit(str[i]))
             return result;
     }
+    
     return result;
 }
