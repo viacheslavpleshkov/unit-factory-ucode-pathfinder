@@ -1,0 +1,29 @@
+#include "pathfinder.h"
+
+void mx_bzero(void *s, size_t n) {
+    mx_memset(s, '\0', n);
+}
+void *mx_memalloc(size_t size) {
+    void *ptr;
+
+    if ((ptr = malloc(size)))
+        mx_bzero(ptr, size);
+    return (ptr);
+}
+t_path *mx_graph_path_create(t_link *route) {
+    t_path *path = mx_memalloc(sizeof(t_path));
+    t_link *iter = route;
+    t_link *ptr;
+
+    path->route = mx_graph_link_create(route->linked_island);
+    path->route->weight = route->weight;
+    path->next = NULL;
+    ptr = path->route;
+    while (iter->next) {
+        ptr->next = mx_graph_link_create(iter->next->linked_island);
+        ptr->next->weight = iter->next->weight;
+        ptr = ptr->next;
+        iter = iter->next;
+    }
+    return path;
+}

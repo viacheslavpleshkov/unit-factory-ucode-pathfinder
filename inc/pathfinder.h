@@ -20,6 +20,7 @@ typedef enum e_error
 typedef struct s_island t_island;
 typedef struct s_link t_link;
 typedef struct s_path t_path;
+typedef struct s_algorithm t_algorithm;
 typedef struct s_file t_file;
 typedef struct s_main t_main;
 
@@ -42,9 +43,16 @@ struct s_link
 struct s_path
 {
     t_link *route;
-    int distance;
+    int dist;
     bool is_shortest;
     t_path *next;
+};
+struct s_algorithm
+{
+    t_island *start;
+    t_island *end;
+    int weight;
+    t_island *start_remainder;
 };
 
 struct s_file
@@ -58,6 +66,7 @@ struct s_main
 {
     t_file *file;
     t_island *islands;
+    t_algorithm *algorithm;
     int count_island;
 };
 
@@ -81,14 +90,19 @@ t_island *mx_graph_island_get(t_island **islands, char *name);
 t_link *mx_graph_link_create(t_island *linked_island);
 void mx_graph_link_add(t_link **links, t_link *link);
 void mx_graph_link_set(t_link **links, t_island *linked_island, int weight);
+//Graph path
+t_path *mx_graph_path_create(t_link *routes);
+void mx_graph_path_push_front(t_path **paths, t_path *path);
+void mx_graph_path_push_back(t_path **paths, t_path *path);
 //Until
 char **mx_file_to_arr(char *file);
 //Pathainder
 void mx_graph_parse(t_main *main);
-void mx_graph_algorithm(t_main *main);
-// void mx_print_paths(t_main *main);
+void mx_graph_algorithm(t_main *m);
+void mx_print_paths(t_main *main);
 //Main
 t_file *mx_file_crate(char *argv[]);
+t_algorithm *mx_algorithm_create();
 t_main *mx_main_create(char *argv[]);
 int main(int argc, char *argv[]);
 
