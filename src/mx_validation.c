@@ -11,5 +11,5 @@ void mx_validation(t_main *main)
     mx_validation_check_island_one_isalpha(filearr);
     mx_validation_check_island_two_isalpha(filearr);
     mx_validation_check_number(filearr);
-    mx_validation_num_islnd(filearr);
+    mx_validation_num_islnd(main);
 }

@@ -76,7 +76,7 @@ void mx_validation(t_main *main);
 void mx_validation_cmd_args(int argc);
 void mx_validation_file_dexist(t_main *main);
 void mx_validation_first_line(t_main *main);
-void mx_validation_num_islnd(char **array);
+void mx_validation_num_islnd(t_main *main);
 t_list *mx_validation_check_island(char **array);
 void mx_validation_check_delim(char **array);
 void mx_validation_check_island_one_isalpha(char **array);
@@ -89,6 +89,8 @@ t_island *mx_graph_island_get(t_island **islands, char *name);
 //Graph link
 t_link *mx_graph_link_create(t_island *linked_island);
 void mx_graph_link_add(t_link **links, t_link *link);
+void mx_graph_link_push_back(t_link **links, t_link *l);
+void mx_graph_link_pop_back(t_link **links);
 void mx_graph_link_set(t_link **links, t_island *linked_island, int weight);
 //Graph path
 t_path *mx_graph_path_create(t_link *routes);
