@@ -2,8 +2,7 @@
 
 void mx_graph_link_add(t_link **links, t_link *link)
 {
-    if (!*links)
-    {
+    if (!*links) {
         *links = link;
         return;
     }

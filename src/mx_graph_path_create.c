@@ -1,17 +1,7 @@
 #include "pathfinder.h"
 
-void mx_bzero(void *s, size_t n) {
-    mx_memset(s, '\0', n);
-}
-void *mx_memalloc(size_t size) {
-    void *ptr;
-
-    if ((ptr = malloc(size)))
-        mx_bzero(ptr, size);
-    return (ptr);
-}
 t_path *mx_graph_path_create(t_link *route) {
-    t_path *path = mx_memalloc(sizeof(t_path));
+    t_path *path = mx_until_memalloc(sizeof(t_path));
     t_link *iter = route;
     t_link *ptr;
 

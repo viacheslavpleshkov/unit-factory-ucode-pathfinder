@@ -2,10 +2,14 @@
 
 void mx_validation_num_islnd(t_main *main)
 {
-    t_list *name = mx_validation_check_island(main->file->array);
-    int leng = mx_list_size(name);
+    t_island *iter = main->islands;
+    int count = 0;
 
-    if (leng != main->count_island)
+    while (iter)
+    {
+        count++;
+        iter = iter->next;
+    }
+    if (main->count_island != count)
         mx_printerr_pf(INVLD_NUM_ISLDS, NULL);
-    mx_del_list(name, leng);
 }

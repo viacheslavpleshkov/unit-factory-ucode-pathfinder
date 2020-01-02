@@ -1,18 +1,14 @@
 #include "pathfinder.h"
 
-void mx_graph_link_pop_back(t_link **links)
-{
+void mx_graph_link_pop_back(t_link **links) {
     t_link *l = *links;
 
-    if (*links != NULL)
-    {
-        if (l->next == NULL)
-        {
+    if (*links != NULL) {
+        if (l->next == NULL) {
             l->linked_island = NULL;
             free(l);
         }
-        else
-        {
+        else {
             while (l->next->next)
                 l = l->next;
             l->next->linked_island = NULL;
