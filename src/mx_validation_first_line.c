@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-static bool mx_isnumber(char *s)
-{
+static bool mx_isnumber(char *s) {
     int i = -1;
 
     while (s[++i])
@@ -10,8 +9,7 @@ static bool mx_isnumber(char *s)
     return true;
 }
 
-void mx_validation_first_line(t_main *main)
-{
+void mx_validation_first_line(t_main *main) {
     char **array = main->file->array;
 
     if (!mx_isnumber(array[0]))

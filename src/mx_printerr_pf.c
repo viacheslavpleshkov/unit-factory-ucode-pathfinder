@@ -1,34 +1,35 @@
 #include "pathfinder.h"
 
-void mx_printerr_pf(t_error err, const char *s)
-{
-    switch (err)
-    {
-    case INVLD_CMD_ARGS:
-        mx_printerr("usage: ./pathfinder [filename]");
-        break;
-    case FILE_DEXIST:
-        mx_printerr("error: file ");
-        mx_printerr(s);
-        mx_printerr(" doesn\'t exist");
-        break;
-    case FILE_EMPTY:
-        mx_printerr("error: file ");
-        mx_printerr(s);
-        mx_printerr(" is empty");
-        break;
-    case INVLD_FRST_LINE:
-        mx_printerr("error: line 1 isn\'t valid");
-        break;
-    case INVLD_LINE:
-        mx_printerr("error: line ");
-        mx_printerr(s);
-        mx_printerr(" isn\'t valid");
-        break;
-    case INVLD_NUM_ISLDS:
-        mx_printerr("error: invalid number of islands");
-        break;
-    }
-    mx_printerr("\n");
+static void file_dexist(const char *s) {
+    mx_printerr("error: file ");
+    mx_printerr(s);
+    mx_printerr(" doesn\'t exist\n");
+}
+
+static void file_empty(const char *s) {
+    mx_printerr("error: file ");
+    mx_printerr(s);
+    mx_printerr(" is empty\n");
+}
+
+static void invld_line(const char *s) {
+    mx_printerr("error: line ");
+    mx_printerr(s);
+    mx_printerr(" isn\'t valid\n");
+}
+
+void mx_printerr_pf(t_error err, const char *s) {
+    if (err == INVLD_CMD_ARGS)
+        mx_printerr("usage: ./pathfinder [filename]\n");
+    if (err == FILE_DEXIST)
+        file_dexist(s);
+    if (err == FILE_EMPTY)
+        file_empty(s);
+    if (err == INVLD_FRST_LINE)
+        mx_printerr("error: line 1 isn\'t valid\n");
+    if (err == INVLD_LINE)
+        invld_line(s);
+    if(err == INVLD_NUM_ISLDS) 
+        mx_printerr("error: invalid number of islands\n");
     exit(1);
 }

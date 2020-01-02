@@ -1,15 +1,14 @@
 #include "pathfinder.h"
 
-void mx_pathainder_parse(t_main *main) {
-    char **array = main->file->array;
+void mx_pathainder_parse(t_main *main, int i) {
     char **ptr;
     char *ptr1;
     t_island *island1;
     t_island *island2;
     int weight;
 
-    for (int i = 1; array[i] != NULL; i++) {
-        ptr = mx_strsplit(array[i], '-');
+    for (; main->file->array[i] != NULL; i++) {
+        ptr = mx_strsplit(main->file->array[i], '-');
         island1 = mx_graph_island_get(&main->islands, mx_strdup(ptr[0]));
         ptr1 = mx_strdup(ptr[1]);
         mx_del_strarr(&ptr);

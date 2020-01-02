@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-void mx_validation(t_main *main)
-{
+void mx_validation(t_main *main) {
     char **filearr = NULL;
 
     mx_validation_file_dexist(main);

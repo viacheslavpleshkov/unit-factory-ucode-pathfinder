@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-t_main *mx_create_main(char *argv[])
-{
+t_main *mx_create_main(char *argv[]) {
     t_main *main = malloc(sizeof(t_main));
     t_file *file = mx_crate_file(argv);
     t_algorithm *algorithm = mx_create_algorithm();

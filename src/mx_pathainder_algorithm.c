@@ -51,7 +51,8 @@ static void check_is_shortest(t_path *path) {
     }
 }
 
-void find_path(t_main *main, t_link *visited, int weight, t_path **paths) {
+static void find_path(t_main *main, t_link *visited, int weight,
+                      t_path **paths) {
     t_link *iter = main->algorithm->start->links;
     t_link *visited_island = NULL;
 
@@ -60,11 +61,10 @@ void find_path(t_main *main, t_link *visited, int weight, t_path **paths) {
     visited_island = mx_graph_link_create(main->algorithm->start);
     visited_island->weight = weight;
     mx_graph_link_push_back(&visited, visited_island);
-    if (main->algorithm->start == main->algorithm->end)
+    if (main->algorithm->start == main->algorithm->end) {
         mx_graph_path_push_back(&paths[main->algorithm->end->index], mx_graph_path_create(visited));
-    else
-        while (iter)
-        {
+    } else
+        while (iter) {
             main->algorithm->start = iter->linked_island;
             find_path(main, visited, iter->weight, paths);
             iter = iter->next;

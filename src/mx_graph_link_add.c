@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-void mx_graph_link_add(t_link **links, t_link *link)
-{
+void mx_graph_link_add(t_link **links, t_link *link) {
     if (!*links) {
         *links = link;
         return;

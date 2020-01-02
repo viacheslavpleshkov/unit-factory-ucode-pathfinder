@@ -1,12 +1,10 @@
 #include "pathfinder.h"
 
-void mx_validation_num_islnd(t_main *main)
-{
+void mx_validation_num_islnd(t_main *main) {
     t_island *iter = main->islands;
     int count = 0;
 
-    while (iter)
-    {
+    while (iter) {
         count++;
         iter = iter->next;
     }

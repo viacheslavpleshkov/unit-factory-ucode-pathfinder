@@ -16,7 +16,6 @@ void mx_graph_link_set(t_link **links, t_island *linked_island, int weight) {
             last_link = iter;
         iter = iter->next;
     }
-
     last_link->next = mx_graph_link_create(linked_island);
     last_link->next->weight = weight;
 }
