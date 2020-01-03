@@ -1,7 +1,6 @@
 #include "libmx.h"
 
-int mx_mid(int a, int b, int c)
-{
+int mx_mid(int a, int b, int c) {
     int mid;
 
     if ((a <= b && b <= c) || (c <= b && b <= a))
@@ -10,6 +9,5 @@ int mx_mid(int a, int b, int c)
         mid = c;
     if ((b <= a && a <= c) || (c <= a && a <= b))
         mid = a;
-
     return mid;
 }

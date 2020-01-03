@@ -1,19 +1,16 @@
 #include "libmx.h"
 
-static int number_length(int number)
-{
+static int number_length(int number) {
 	int length = 0;
 
-	while (number)
-	{
+	while (number) {
 		number /= 10;
 		length++;
 	}
 	return length;
 }
 
-char *mx_itoa(int number)
-{
+char *mx_itoa(int number) {
 	int length = number_length(number);
 	int tmp = number;
 	char *result = NULL;
@@ -24,10 +21,8 @@ char *mx_itoa(int number)
 	if (number == -2147483648)
 		return mx_strcpy(result, "-2147483648");
 	tmp = number;
-	for (int i = 0; i < length; i++)
-	{
-		if (tmp < 0)
-		{
+	for (int i = 0; i < length; i++) {
+		if (tmp < 0) {
 			result[length] = '-';
 			tmp = -tmp;
 		}

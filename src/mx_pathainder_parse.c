@@ -1,10 +1,10 @@
 #include "pathfinder.h"
 
 void mx_pathainder_parse(t_main *main, int i) {
-    char **ptr;
-    char *ptr1;
-    t_island *island1;
-    t_island *island2;
+    char **ptr = NULL;
+    char *ptr1 = NULL;
+    t_island *island1 =NULL;
+    t_island *island2 = NULL;
     int weight;
 
     for (; main->file->array[i] != NULL; i++) {
@@ -19,6 +19,10 @@ void mx_pathainder_parse(t_main *main, int i) {
         mx_del_strarr(&ptr);
         mx_graph_link_set(&island1->links, island2, weight);
         mx_graph_link_set(&island2->links, island1, weight);
+        ptr = NULL;
+        ptr1 = NULL;
+        island1 =NULL;
+        island2 = NULL;
     }
     mx_validation_num_islnd(main);
 }
