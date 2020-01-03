@@ -55,6 +55,7 @@ static void find_path(t_main *main, t_link *visited, int weight,
                       t_path **paths) {
     t_link *iter = main->algorithm->start->links;
     t_link *visited_island = NULL;
+    t_path *temp = NULL;
 
     if (is_visited(visited, main->algorithm->start))
         return;
@@ -62,7 +63,8 @@ static void find_path(t_main *main, t_link *visited, int weight,
     visited_island->weight = weight;
     mx_graph_link_push_back(&visited, visited_island);
     if (main->algorithm->start == main->algorithm->end) {
-        mx_graph_path_push_back(&paths[main->algorithm->end->index], mx_graph_path_create(visited));
+        temp = mx_graph_path_create(visited);
+        mx_graph_path_push_back(&paths[main->algorithm->end->index], temp);
     } else
         while (iter) {
             main->algorithm->start = iter->linked_island;
@@ -75,6 +77,8 @@ static void find_path(t_main *main, t_link *visited, int weight,
 void mx_pathainder_algorithm(t_main *main) {
     main->algorithm->start = main->islands;
     t_link *visited = NULL;
+    //temp -> t
+    t_path *t = NULL;
 
     while (main->algorithm->start) {
         main->algorithm->end = main->algorithm->start->next;
@@ -83,8 +87,9 @@ void mx_pathainder_algorithm(t_main *main) {
             if (main->algorithm->start != main->algorithm->end) {
                 find_path(main, visited, 0, main->algorithm->start->paths);
                 main->algorithm->start = main->algorithm->start_remainder;
-                set_distances(main->algorithm->start->paths[main->algorithm->end->index]);
-                check_is_shortest(main->algorithm->start->paths[main->algorithm->end->index]);
+                t = main->algorithm->start->paths[main->algorithm->end->index];
+                set_distances(t);
+                check_is_shortest(t);
             }
             main->algorithm->end = main->algorithm->end->next;
         }

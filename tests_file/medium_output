@@ -1,4 +1,3 @@
->./pathfinder medium | cat -e
 ========================================
 Path: One -> Two
 Route: One -> Two

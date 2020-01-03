@@ -1,4 +1,3 @@
->./pathfinder easy | cat -e
 ========================================
 Path: Blade -> Wizard
 Route: Blade -> Wizard
@@ -13,4 +12,4 @@ Distance: 1
 Path: Wizard -> Drive
 Route: Wizard -> Drive
 Distance: 1
-======================================== 
+========================================

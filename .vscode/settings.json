@@ -3,8 +3,6 @@
         "libmx.h": "c"
 
     },
-    "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.list.automaticKeyboardNavigation": false,
     "editor.rulers": [79],
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,

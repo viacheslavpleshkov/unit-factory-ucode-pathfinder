@@ -3,7 +3,7 @@
 
 #include "libmx.h"
 #include <ctype.h>
-
+#include <stdio.h>
 //Error
 typedef enum e_error {
     INVLD_CMD_ARGS,
@@ -66,6 +66,7 @@ struct s_main {
 void mx_printerr_pf(t_error err, const char *s);
 void mx_validation(t_main *main);
 void mx_validation_cmd_args(int argc);
+void mx_validation_file_empty(t_main *main);
 void mx_validation_file_dexist(t_main *main);
 void mx_validation_first_line(t_main *main);
 void mx_validation_num_islnd(t_main *main);

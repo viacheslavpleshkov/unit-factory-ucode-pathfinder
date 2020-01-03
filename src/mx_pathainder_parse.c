@@ -19,10 +19,6 @@ void mx_pathainder_parse(t_main *main, int i) {
         mx_del_strarr(&ptr);
         mx_graph_link_set(&island1->links, island2, weight);
         mx_graph_link_set(&island2->links, island1, weight);
-        ptr = NULL;
-        ptr1 = NULL;
-        island1 =NULL;
-        island2 = NULL;
     }
     mx_validation_num_islnd(main);
 }
