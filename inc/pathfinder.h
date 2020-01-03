@@ -2,8 +2,7 @@
 #define PATHFINDER_H
 
 #include "libmx.h"
-#include <ctype.h>
-#include <stdio.h>
+
 //Error
 typedef enum e_error {
     INVLD_CMD_ARGS,
