@@ -7,6 +7,7 @@ t_file *mx_crate_file(char *argv[]) {
 
     file->name = argv[1];
     file->fd = fd;
+    file->filearray = mx_file_to_str(argv[1]);
     file->array = array;
     return file;
 }
