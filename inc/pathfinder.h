@@ -92,9 +92,10 @@ t_path *mx_graph_path_create(t_link *routes);
 void mx_graph_path_push_front(t_path **paths, t_path *path);
 void mx_graph_path_push_back(t_path **paths, t_path *path);
 //Pathainder
-void mx_pathainder_parse(t_main *main);
+void mx_pathainder_parse(t_main *main, int i);
 void mx_pathainder_algorithm(t_main *m);
 void mx_pathainder_prepare_for_algorithm(t_main *main);
+void mx_pathainder_reverse_paths(t_main *main);
 void mx_pathainder_print_paths(t_main *main);
 //Until
 char **mx_until_file_to_arr(char *file);
