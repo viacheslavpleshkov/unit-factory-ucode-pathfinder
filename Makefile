@@ -39,11 +39,9 @@ install: $(LMXA) $(NAME)
 
 $(NAME): $(OBJS)
 	@$(COMP) $(CFLG) $(OBJS) -L$(LMXD) -lmx -o $@
-	@printf "\r\33[2K$@\t   \033[32;1mcreated\033[0m\n"
 
 $(OBJD)/%.o: $(SRCD)/%.c $(INCS)
 	@$(COMP) $(CFLG) -c $< -o $@ -I$(INCD) -I$(LMXI)
-	@printf "\r\33[2K$(NAME)\t   \033[33;1mcompile \033[0m$(<:$(SRCD)/%.c=%) "
 
 $(OBJS): | $(OBJD)
 
@@ -55,11 +53,9 @@ $(LMXA):
 clean:
 	@make -sC $(LMXD) $@
 	@rm -rf $(OBJD)
-	@printf "$(OBJD)\t\t   \033[31;1mdeleted\033[0m\n"
 
 uninstall: clean
 	@make -sC $(LMXD) $@
 	@rm -rf $(NAME)
-	@printf "$(NAME)\t   \033[31;1muninstalled\033[0m\n"
 
 reinstall: uninstall install
