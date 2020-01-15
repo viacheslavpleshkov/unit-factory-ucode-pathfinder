@@ -64,7 +64,7 @@ static void find_path(t_main *main, t_link *visited, int weight,
     mx_graph_link_push_back(&visited, visited_island);
     if (main->algorithm->start == main->algorithm->end) {
         temp = mx_graph_path_create(visited);
-        mx_graph_path_push_front(&paths[main->algorithm->end->index], temp);
+        mx_graph_path_push_back(&paths[main->algorithm->end->index], temp);
     } else
         while (iter) {
             main->algorithm->start = iter->linked_island;
