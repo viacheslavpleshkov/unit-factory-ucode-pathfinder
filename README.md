@@ -16,10 +16,10 @@ C, Makefile, Algorithm, File system, Memory, Terminal, Bash, Unix, CBL framework
 
 <hr>
 
-## How to use
-1. Compilation this command `make`
-1. Reinstalliation this command `make reinstall`
-1. Uninstalliation this command `make uninstall`
+### Building the program
+1. Download/Clone the source code
+2. `cd` into the root directory
+3. Run `make`
 
 ## Usage example
 
