@@ -2,7 +2,7 @@
     <a href="https://unitfactory.net/en/" target="_blank">
         <img src="https://github.com/slava-pleshkov/unit-factory-ucode/blob/master/.git_images/unit_logo.png?raw=true" height="100px">
     </a>
-    <a href="https://apply.ucode.world/" target="_blank">
+    <a href="https://ucode.world/en/" target="_blank">
         <img src="https://github.com/slava-pleshkov/unit-factory-ucode/blob/master/.git_images/ucode_logo.png?raw=true" height="100px">
     </a>
     <h1 align="center">unit-factory-ucode-pathfinder</h1>
@@ -10,13 +10,13 @@
 </p>
 <p align="center">🔭 Learn pathfinding algorithms</p>
 
-## Used technologies
+##  Got skills
 
-C, Makefile, Algorithm, File system, Memory, Terminal, Bash, Unix, CBL framework
+Reasoning & Argumentation, Creativity, Communication, Critical Thinking, Problem Solving, Analysis, Innovation Thinking, Agility & Adaptability, Initiative, Responsibility, Self-Management, UNIX, Git, Procedural Programming, Algorithms, C
 
 <hr>
 
-### Building the program
+## Building the program
 1. Download/Clone the source code
 2. `cd` into the root directory
 3. Run `make`
@@ -28,7 +28,7 @@ C, Makefile, Algorithm, File system, Memory, Terminal, Bash, Unix, CBL framework
 ```
 ## Examples
 
-## File
+###  File
 
 ```
 8
@@ -41,7 +41,7 @@ Kyiv-Singapore,11864
 Kyiv-Tokyo,11079
 ```
 
-## Output
+###  Output
 
 ```
 ========================================
